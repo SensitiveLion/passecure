@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password</title>
+  <%= stylesheet_link_tag "normalize", "foundation.min", "app" %>
+  <%= javascript_include_tag "application", "foundation.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1>
+          <%= link_to "Rescue Mission", root_path %>
+        </h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+      </ul>
+
+    </section>
+  </nav>
+
+<% if flash.any? %>
+  <div class="flash">
+    <div class="container">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

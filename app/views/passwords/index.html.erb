@@ -1,0 +1,73 @@
+<ul class="large-block-grid-2">
+  <li>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <h2>Check if your password is secure.</h2>
+        <br>
+        <h3>Your password should:</h3>
+        <br>
+        <h3>Be at least 10 characters long (longer is better)</h3>
+        <br>
+        <h3>
+        - include a number, uppercase letter,
+        lowercase letter, and special character
+        </h3>
+        <br>
+        <h3>- Not be one of the most commenly used commonly used</h3>
+        <br>
+        <h3>- Not have numbers as the last two digits</h3>
+        <br>
+        <h3>- Not have a capital letter as the first character</h3>
+        <h2>OR</h2>
+        <h3>- At least 25 characters with at least one space</h3>
+      </div>
+    </div>
+  </li>
+  <li>
+    <ul class="large-block-grid-2">
+      <div class="row">
+        <div class="small-8 small-centered columns">
+          <h2>Password:</h2>
+          <form action='/' method='POST'>
+            <input type='Text' name='password' size='' placeholder='Test your password here' >
+            <button type='submit' href="#" class="button round">Check password</button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-10 small-centered columns">
+            <% if cookies[:check].nil? %>
+              <br><br><br><br>
+            <% else %>
+              <h3>Your passowrd: <%= session[:check].password %></h3>
+              <h3><%= cookies[:check].summary %></h3>
+            <% end %>
+        </div>
+      </div>
+      <div calss="row">
+        <div class="small-10 small-centered columns">
+          <h2>Generate Random Passowrd:</h2>
+          <form action='/generate' method='POST'>
+            <button type='submit' href="#" class="button round">Generate</button>
+          </form>
+          <h3>
+            <% if cookies[:generate].nil? %>
+              <br><br><br>
+            <% else %>
+              <%= cookies[:generate] %>
+            <% end %>
+          </h3>
+        </div>
+      </div>
+    </ul>
+  </li>
+</ul>
+  <div class="row">
+    <div class="small-10 small-centered columns">
+      <form action='/reset' method='POST'>
+        <button type='submit' href="#" class="button round">Reset Cookies</button>
+      </form>
+    </div>
+  </div>
+
+

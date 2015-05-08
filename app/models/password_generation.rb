@@ -57,7 +57,7 @@ class Generate < PasswordSummary
   end
 
   def self.secure
-    maybe_good = Generate.random_string(6)
+    maybe_good = random_string(6)
     random_pass = PasswordSummary.new(maybe_good)
     unless random_pass.security?
       maybe_good = Generate.random_string(6)

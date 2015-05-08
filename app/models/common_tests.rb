@@ -1,16 +1,17 @@
 class CommonTests
+  attr_reader :password
 
   def ascii?
-    @password.ascii_only?
+    password.ascii_only?
   end
 
   def long_enough?
-    @password.length >= 10
+    password.length >= 10
   end
 
   def special_chars?
     count = 0
-    @password.split(//).each do |letter|
+    password.split(//).each do |letter|
       if ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
           "-", "=", "<", ">", '?', ":", "\"", "{", "}", "|", "\\", "]",
           "[", "'", ";", "/", ".", ",", "=", "-", "`", "~", " "].include?(letter)
@@ -24,7 +25,7 @@ class CommonTests
   end
 
   def uppercase?
-    matches = @password.gsub(/[^A-Z]*/,"")
+    matches = password.gsub(/[^A-Z]*/,"")
     if matches.size >= 1
       return true
     end
@@ -32,7 +33,7 @@ class CommonTests
   end
 
   def lowercase?
-    matches = @password.gsub(/[^a-z]*/,"")
+    matches = password.gsub(/[^a-z]*/,"")
     if matches.size >= 1
       return true
     end
@@ -40,7 +41,7 @@ class CommonTests
   end
 
   def numbers?
-    matches = @password.gsub(/[^0-9]*/,"")
+    matches = password.gsub(/[^0-9]*/,"")
     if matches.size >= 1
       return true
     end

@@ -1,5 +1,3 @@
-require "pry"
-
 class PasswordSummary < Testing
 
 

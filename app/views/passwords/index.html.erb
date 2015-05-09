@@ -1,8 +1,0 @@
-<ul>
-  <% @passwords.each do |restaurant| %>
-    <li><%= link_to "#{password.name}", "/restaurants/#{restaurant.id}" %> </li>
-  <% end %>
-
-</ul>
-
-<%= link_to "Add a Restaurant!", new_password_path, class: "button" %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :password
+  resources :common_passwords, only: :index
 
-  root "passwords#index"
+  root "common_passwords#index"
 end

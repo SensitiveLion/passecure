@@ -1,1 +1,109 @@
-hii
+<div class="title">
+  <div class="panel">
+    <h1>Passecure</h1>
+    <h2>Check if your password is secure.</h2>
+  </div>
+</div>
+<ul class="large-block-grid-2">
+  <li>
+    <div class="panel">
+      <h2>Check if your password is secure.</h2>
+      <ul>
+        <li><h3>Your password should:</h3></li>
+        <li>
+        - include a number, uppercase letter,
+        lowercase letter, and special character
+        </li>
+        <li>- Not be one of the most commenly used commonly used</li>
+        <li>- Not have numbers as the last two digits</li>
+        <li>- Not have a capital letter as the first character</li>
+      </ul>
+      <h4>OR</h4>
+      <ul>
+        <li><h3>Your passphrase should:</h3></li>
+        <li>- Be at least a 20 character long phrase of words</li>
+        <li>- Have at least one uppercase and one lowercase letter</li>
+      </ul>
+      <p></p>
+    </div>
+  </li>
+  <li>
+    <ul class="large-block-grid-2">
+      <div class="panel">
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <h3>Password:<%unless cookies[:check].nil? %>
+              <%= cookies[:check].password %>
+              <% end %></h3>
+            <form action='/password' method='POST'>
+              <input type='Text' name='password' size='' placeholder='Test your password here' >
+              <button type='submit' href="#" class="button round">Check password</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-10 small-centered columns">
+            <% if cookies[:check].nil? %>
+              <br><br>
+            <% else %>
+              <h5><%= cookies[:check].summary %></h5>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <h3>Pass Phrase:<%unless cookies[:check].nil? %>
+              <%= cookies[:check].password %>
+              <% end %></h3>
+            <form action='/passphrase' method='POST'>
+              <input type='Text' name='passphrase' size='' placeholder='Test your pass phrase here' >
+              <button type='submit' href="#" class="button round">Check pass phrase</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-10 small-centered columns">
+            <% if cookies[:check_phrase].nil? %>
+              <br><br>
+            <% else %>
+              <h5><%= cookies[:check_phrase].summary %></h5>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </li>
+</ul>
+<div class="panel">
+    <div class="small-10 small-centered columns">
+      <h2>Generate Random Password:</h2>
+      <div class="small-10 small-centered columns">
+        <% if cookies[:generate].nil? %>
+          <p></p>
+        <% else %>
+          <p></p>
+          <h3 id="generated"> <%= cookies[:generate] %></h3>
+        <% end %>
+      </div>
+      <p></p>
+      <form action='/generate' method='POST' class="demo">
+        <h4>Length of generated password</h4>
+        <div class="small-3 small-centered columns">
+          <select name="length" id="length" class="balck">
+            <% (15..35).each do |num| %>
+              <option value="<%= num %>"><%= num %></option>
+            <% end %>
+          </select>
+        </div>
+        <p></p>
+        <button type='submit' href="#" class="button round">Generate</button>
+      </form>
+    </div>
+  </div>
+<div class="row">
+  <div class="small-10 small-centered columns">
+    <form action='/reset' method='POST'>
+      <button type='submit' href="#" class="button round">Reset Cookies</button>
+    </form>
+  </div>
+</div>

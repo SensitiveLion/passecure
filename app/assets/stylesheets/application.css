@@ -76,3 +76,8 @@ ul li {
 .demo select.balck {
     background-color: #5C0F0F;
 }
+
+.top-bar .name h1, .top-bar .name h2, .top-bar .name h3,
+ .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+  color: white;
+}
